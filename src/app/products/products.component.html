@@ -1,0 +1,21 @@
+    
+<div class="row row-cols-1 row-cols-md-3 g-4 m-4">
+    <ng-container *ngFor="let prd of FilterdProducts;let i=index;let c=count;" >
+      <div class="col" >
+      <!-- *ngIf="prd.quantity!=0"[class.d-none]="prd.catId!=selectedCatId"  -->
+        <div class="card" appProductCard hoverColor="gray" >
+        <!-- [style.background-color]="(prd.quantity == 1) ? 'yellow' : ''" [style.color]="(prd.quantity == 1) ? 'black':''"-->
+    <img [src]="prd.imgUrl" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{prd.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"></h6>
+      <p class="card-text">Quantity is : {{prd.quantity}}</p>
+      <p class="card-text">Price is : {{prd.price}}</p>
+      <button class="btn btn-danger m-2" (click)="buyProduct(prd)">Buy</button>
+      <br>
+      <button class="btn btn-danger" [routerLink]="['/details',prd.id]" >Details</button>
+    </div>
+    </div>
+      </div>
+      </ng-container>     
+ <h3>Credit Card number is : {{creditCardNum | creditCard }}</h3>        
